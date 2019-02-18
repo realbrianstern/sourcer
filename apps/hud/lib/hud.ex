@@ -1,0 +1,2 @@
+defmodule Hud do
+end

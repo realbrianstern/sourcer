@@ -24,6 +24,8 @@ defmodule Hud.MixProject do
 
   defp deps do
     [
+      {:distillery, "~> 2.0"},
+      {:libcluster, "~> 3.0"},
       {:conduit, in_umbrella: true}
     ]
   end

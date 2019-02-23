@@ -1,7 +1,7 @@
 use Mix.Config
 
-config :hud,
-  osc_send_port: 9001
+config :mainframe,
+  osc_listen_port: 9000
 
 config :libcluster,
   topologies: [

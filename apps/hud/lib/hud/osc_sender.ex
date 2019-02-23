@@ -10,11 +10,9 @@ defmodule Hud.OscSender do
   def init(send_port) do
     {:ok, socket} = :gen_udp.open(0, [:binary, ip: {127, 0, 0, 1}, active: false])
 
-    # Replace with LibCluster
-    Node.connect(:mainframe@localhost)
-
     Conduit.listen_topic("bitwig_osc")
     Conduit.add_subscriber(__MODULE__)
+
     {:ok, {socket, send_port}}
   end
 

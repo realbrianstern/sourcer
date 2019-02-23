@@ -1,4 +1,4 @@
-defmodule BitwigBroadcast.OscListener do
+defmodule Mainframe.OscListener do
   use GenServer
 
   @spec start_link(:inet.port_number()) :: :ignore | {:error, any()} | {:ok, pid()}
@@ -15,18 +15,5 @@ defmodule BitwigBroadcast.OscListener do
     Conduit.broadcast("bitwig_osc", data)
     IO.inspect("__RECEIVED__")
     {:noreply, socket}
-    # broadcast_message(data, socket)
   end
-
-  # defp broadcast_message(data, socket) do
-  #   IO.inspect("__RECEIVED__")
-
-  #   Registry.dispatch(BitwigBroadcast.SubscriberRegistry, :subscribers, fn entries ->
-  #     Enum.each(entries, fn {pid, _} ->
-  #       send(pid, {:osc_message, data})
-  #     end)
-  #   end)
-
-  #   {:noreply, socket}
-  # end
 end

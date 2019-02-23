@@ -1,9 +1,9 @@
-defmodule BitwigBroadcast.MixProject do
+defmodule Mainframe.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :bitwig_broadcast,
+      app: :mainframe,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -18,12 +18,14 @@ defmodule BitwigBroadcast.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {BitwigBroadcast.Application, []}
+      mod: {Mainframe.Application, []}
     ]
   end
 
   defp deps do
     [
+      {:distillery, "~> 2.0"},
+      {:libcluster, "~> 3.0"},
       {:conduit, in_umbrella: true}
     ]
   end
